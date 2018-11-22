@@ -1,0 +1,40 @@
+
+XPBar
+======
+XPBar related methods
+
+
+------------
+
+XPBar.IsOpen
+~~~~~~~~~~~~
+.. code-block:: pascal
+
+ function TXPBar.IsOpen(WaitTime: UInt32 = 0): Boolean;
+
+Attempts to open the XP-bar, returns ``True`` on success.
+
+
+------------
+
+XPBar.Toggle
+~~~~~~~~~~~~
+.. code-block:: pascal
+
+ function TXPBar.Toggle(Enable: Boolean): Boolean;
+
+Toggles ON/OFF the XP-bar.
+
+
+------------
+
+XPBar.Read
+~~~~~~~~~~
+.. code-block:: pascal
+
+  function TXPBar.Read: Integer;
+
+Opens the XPBar if needed and returns the current total.
+
+
+------------
