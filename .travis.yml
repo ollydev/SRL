@@ -1,8 +1,18 @@
-language: minimal
+language: bash
 os: windows
     
 install:
-  - wget https://github.com/MerlijnWajer/Simba/releases/download/simba-1.3.0-rc1/Simba.i386-win32.exe
-
-script:
-  - dir
+  - curl -L -o ../Simba.exe https://github.com/ollydev/Simba/releases/download/Test/Simba.x86_64-win64.exe
+  - curl -L -o ../Plugins.zip https://github.com/SRL/SRL-Plugins/archive/1.00.zip
+  - curl -L -o ../Fonts.zip https://github.com/SRL/SRL-Fonts/archive/1.00.zip
+  
+script: 
+  - cd ../
+  - mkdir Includes/
+  - 7z x Plugins.zip
+  - 7z x Fonts.zip
+  - mv SRL-Fonts-1.00 Fonts
+  - mv SRL-Plugins-1.00 Plugins
+  - mv SRL Includes/SRL
+  - echo {$I SRL/OSR.simba} begin end. > test.simba
+  - ./Simba.exe -open test.simba -compile -test
