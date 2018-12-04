@@ -4,7 +4,7 @@ WorldSwitcher
 Methods that relates to swithing world. Olly will one day document this some day.
 *)
 type
-  ERSWorldProperty ==== (WORLD_FREE, WORLD_MEMBERS,
+  ERSWorldProperty = (WORLD_FREE, WORLD_MEMBERS,
                       WORLD_PVP, WORLD_DEADMAN, WORLD_SKILL, WORLD_EVENT,
                       WORLD_USA, WORLD_GERMANY, WORLD_UK, WORLD_AUSTRALIA
                      );
