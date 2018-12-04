@@ -19,6 +19,8 @@ begin
   srl.DefaultClientBounds := [0, 0, 764, 502];
 end;
 
+blah.
+
 {$IFDEF SMART}                    // --- IF USER ENABLED SMART
   {$include_once shared/smartbase.simba}
   {$include_once osr/smart.simba}
