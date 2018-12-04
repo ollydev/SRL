@@ -1,18 +1,23 @@
 language: bash
 os: windows
-    
+ 
+env:
+  global: 
+    PLUGINS_VERSION=2.00
+    FONTS_VERSION=1.00
+ 
 install:
   - curl -L -o ../Simba.exe https://github.com/ollydev/Simba/releases/download/Test/Simba.x86_64-win64.exe
-  - curl -L -o ../Plugins.zip https://github.com/SRL/SRL-Plugins/archive/1.00.zip
-  - curl -L -o ../Fonts.zip https://github.com/SRL/SRL-Fonts/archive/1.00.zip
+  - curl -L -o ../Plugins.zip https://github.com/SRL/SRL-Plugins/archive/$PLUGINS_VERSION.zip
+  - curl -L -o ../Fonts.zip https://github.com/SRL/SRL-Fonts/archive/$FONTS_VERSION.zip
   
 script: 
   - cd ../
   - mkdir Includes/
   - 7z x Plugins.zip
   - 7z x Fonts.zip
-  - mv SRL-Fonts-1.00 Fonts
-  - mv SRL-Plugins-1.00 Plugins
+  - mv SRL-Fonts-$FONTS_VERSION Fonts
+  - mv SRL-Plugins-$PLUGINS_VERSION Plugins
   - mv SRL Includes/SRL
-  - echo {$I SRL/OSR.simba} begin end. > test.simba
+  - echo "{\$I SRL/OSR.simba} begin end." >> test.simba
   - ./Simba.exe -open test.simba -compile -test
